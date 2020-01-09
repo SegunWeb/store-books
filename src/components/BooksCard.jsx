@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image, Icon, Button } from 'semantic-ui-react'
 
 
-const BookCard = ({title, author, price, image}) => {
+const BooksCard = ({title, author, price, image}) => {
     return (
         <Card>
             <Image src={image} wrapped ui={false} />
@@ -25,4 +25,4 @@ const BookCard = ({title, author, price, image}) => {
 
 };
 
-export default BookCard;
+export default BooksCard;

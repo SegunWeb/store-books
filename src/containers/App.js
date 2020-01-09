@@ -1,48 +1,29 @@
-import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {setBooks, } from "../actions/books";
-import axios from 'axios'
-import { Container, Card } from 'semantic-ui-react'
-import Spiner from "../components/spiner";
-import BookCard from "../components/BookCard";
-import Filter from "../components/Filter";
-import MainMenu from "../components/MainMenu";
+import * as booksActions from "../actions/books";
+import { bindActionCreators } from "redux";
+import App from '../components/App'
+import orderBy from 'lodash/orderBy'
 
 
-class App extends Component {
-
-    componentDidMount() {
-        const {setBooks} = this.props;
-        axios.get("/books.json")
-            .then(({data}) => {
-                setBooks(data)
-            })
+const sortBy = (books, filterBy) => {
+    switch (filterBy) {
+        case 'price_high':
+            return orderBy(books, 'price', 'desc');
+        case 'price_low':
+            return orderBy(books, 'price', 'asc');
+        case 'author':
+            return orderBy(books, 'author', 'asc');
+        default:
+            return books;
     }
-
-    render() {
-    const { books, ready } = this.props;
-    return (
-        <Container>
-            <MainMenu/>
-            <Filter/>
-
-            <Card.Group itemsPerRow={4}>
-                {!ready
-                    ? <Spiner/>
-                    : books.map((book, i) => (<BookCard key={i} {...book} />))
-                }
-            </Card.Group>
-        </Container>
-    );
-  }
-}
+};
 
 const mapStateToProps = ({ books }) => ({
-    books: books.items,
+    books: sortBy(books.items, books.filterBy),
     ready: books.ready,
 });
 const mapDispatchToProps = dispatch => ({
-    setBooks: books => dispatch(setBooks(books)),
+    ...bindActionCreators(booksActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

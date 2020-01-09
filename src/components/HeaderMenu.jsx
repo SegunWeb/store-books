@@ -15,7 +15,7 @@ import { Menu, Popup, Button, List, Image  } from 'semantic-ui-react'
 //
 // );
 
-const MainMenu = () => (
+const HeaderMenu = () => (
     <Menu>
         <Menu.Item
             // name='browse'
@@ -47,4 +47,4 @@ const MainMenu = () => (
 );
 
 
-export default MainMenu;
+export default HeaderMenu;
