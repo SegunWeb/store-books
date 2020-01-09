@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import App from './App';
+import App from './containers/App';
 import createStore from './store'
+
+import 'semantic-ui-css/semantic.min.css'
+import './components/App.css'
 
 const store = createStore();
 
