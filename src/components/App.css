@@ -5,3 +5,9 @@ body {
     max-width: 600px;
     margin: 40px auto;
 }
+.error {
+    color: #99060b !important;
+}
+.active {
+    color: #148c16 !important;
+}
