@@ -1,8 +1,8 @@
-export const addBook = obj => ({
+export const addToCart = obj => ({
     type: 'ADD_BOOK',
     payload: obj
 });
-export const removeBook = id => ({
+export const removeFromCart = id => ({
     type: 'REMOVE_BOOK',
     payload: id,
 });

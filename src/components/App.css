@@ -1,3 +1,7 @@
 body {
     margin: 40px auto;
 }
+.wrap-form {
+    max-width: 600px;
+    margin: 40px auto;
+}

@@ -1,7 +1,10 @@
-import React from 'react'
-import { Input, Menu } from 'semantic-ui-react'
+import React from 'react';
+import { Input, Menu } from 'semantic-ui-react';
+
 
 const Filter = ({filterBy, setFilter, searchQuery, setQuery}) => {
+
+
     return (
     <Menu secondary>
         <Menu.Item

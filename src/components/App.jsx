@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import axios from 'axios'
 import { Container, Card } from 'semantic-ui-react'
 import Spiner from "./Spiner";
-import BooksCard from "./BooksCard";
+import BooksCard from "../containers/BooksCard";
 import Filter from "../containers/Filter";
-import Menu from "./HeaderMenu";
+import HeaderMenu from "../containers/HeaderMenu";
+import FormCart from './FormCart'
 
 export default class App extends Component {
 
@@ -20,9 +21,11 @@ export default class App extends Component {
         const { books, ready } = this.props;
         return (
             <Container>
-                <Menu/>
+                <HeaderMenu/>
                 <Filter/>
-
+                <div className='wrap-form'>
+                    <FormCart />
+                </div>
                 <Card.Group itemsPerRow={4}>
                     {!ready
                         ? <Spiner/>
