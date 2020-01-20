@@ -5,7 +5,7 @@ import App from './containers/App';
 import createStore from './store'
 
 import 'semantic-ui-css/semantic.min.css'
-import './components/App.css'
+import './styles/App.css'
 
 const store = createStore();
 
