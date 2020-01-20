@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import * as booksActions from "../actions/books";
+// import * as cartActions from "../actions/cart";
 import { bindActionCreators } from "redux";
-import App from '../components/App'
 import orderBy from 'lodash/orderBy'
-
+import App from '../components/App'
 
 const sortBy = (books, filterBy) => {
     switch (filterBy) {
@@ -28,12 +28,18 @@ const searchBook = (books, filterBy, searchQuery) => {
     return sortBy(filterBook(books, searchQuery), filterBy);
 };
 
-const mapStateToProps = ({ books, filter }) => ({
+// cart}, {id}
+
+const mapStateToProps = ({ books, filter, }) => ({
     books: books.items && searchBook(books.items, filter.filterBy, filter.searchQuery),
     ready: books.ready,
+
+    // addedCount: cart.items.reduce(
+    //     (count, book) => count + (book.id === id ? 1 : 0), 0),
 });
 const mapDispatchToProps = dispatch => ({
     ...bindActionCreators(booksActions, dispatch),
+    // ...bindActionCreators(cartActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

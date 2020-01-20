@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 import { Container, Card } from 'semantic-ui-react'
 import Spiner from "./Spiner";
 import BooksCard from "../containers/BooksCard";
@@ -10,11 +10,12 @@ import FormCart from './FormCart'
 export default class App extends Component {
 
     componentDidMount() {
-        const {setBooks} = this.props;
-        axios.get("/books.json")
-            .then(({data}) => {
-                setBooks(data)
-            })
+        // const {setBooks} = this.props;
+        // axios.get("/books.json")
+        //     .then(({data}) => {
+        //         setBooks(data)
+        //     })
+    this.props.setBooksThunk()
     }
 
     render() {
